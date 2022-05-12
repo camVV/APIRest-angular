@@ -1,0 +1,38 @@
+<h1 class="text-center">Criptomonedas top 100</h1>
+<div class="row" >
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header p-3">
+        <h5 class="mb-0">Listado </h5><br>
+          <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar"
+          [(ngModel)]="filterTerm"
+        /> 
+      </div>
+<div id="table">
+<table class="table table-hover">
+  <thead>
+    
+    <tr>
+      <th >{{tablaNombres.id}}</th>
+      <th>{{tablaNombres.current_price}}</th>
+      <th>{{tablaNombres.market_cap}}</th>
+      <th>{{tablaNombres.last_updated}}</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let moneda of moneda | filter: filterTerm">
+    <tr class="table-active">
+      <th>  <img [src]="moneda.image"
+        class="shadow-1-strong rounded-circle" 
+        style="width: 25px; height: auto;">
+      <span class="ms-2 col-sm-3">{{moneda.id}}</span></th>
+      <td>{{moneda.current_price}}$</td>
+      <td>{{moneda.market_cap}}</td>
+      <td>{{moneda.last_updated | date: 'MMM d, y, h:mm:ss a'}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
